@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+
+\title{Ausbreitung eines Feuers auf einem Gitter}
+\author{Daniel Podstavek}
+\date {Den 25-sten Januar, 2015}
+
+
+\begin{document}
+	\maketitle
+	\pagenumbering{gobble}	
+
+	\section{Einleitung zum Thema}
+	
+	\paragraph{Unsere Welt}
+	
+	Wir befinden uns auf einem unendlichen Gittergraphen. Jeder Knoten ist mit vier anderen umgegebenen verbunden. Ausreichend kann für uns die Vorstellung eines zwei-dimensionalen Felds sein.
+	
+	 \paragraph{Die Bedrohung}
+	 
+	  Plötzlich bricht aber ein Feuer aus. Wegen der unbedingten Verbreitung des Feuers brennen in einem Schritt als Nächstes die direkt verbundene Knoten nieder. Die Bedrohung ist recht groß, weil wenn keiner der Pest widersteht, es gibt nur endlich Zeit bis ein bestimmter Knoten auch betroffen ist.
+	  
+	  \paragraph{Die Einsatzkräfte}
+	  
+	  Unsere Welt ist jedoch nicht ohne Abwehr. Es kommt zum Glück eine Rettungseinheit, die besonders dafür ausgestattet ist, mit dem Feuer zu kämpfen. In einem Zeitschritt können nun $E$ Einsatzkräfte zur Verfügung gestellt werden. Jede $E$ vermag einen Knoten dauerhaft zu beschützen. Die Knoten können beliebig gewählt sein.
+	  
+	  \paragraph{Die Aufgabe}
+	  
+	  Die einzige Hoffnung die Welt zu retten, ist das Feuer völlig einzuschließen. Sogar die kleinste Lücke bedeutet eine Gefahr für alle Knoten.  Es wäre am besten, wenn es die Rettungseinheit möglichst schnell mit der geringsten Anzahl von verbrannten Knoten schaffen würde.
+	  
+	  \section{Das grundlegende Problem}
+	  
+	  \paragraph {}
+	  
+	  Wir haben die freie Wahl den ersten Knoten zu beschützen. Welche Strategie sollte gewählt sein? Mit welchem Knoten sollte man überhaupt anfangen?
+	  
+	  \paragraph{}
+	  
+	  Die erste Überlegung wäre, ob man nah am Feuer, oder weiter weg den Ersten Knoten beschützen sollte. Wenn man erst weit weg den Knoten schützt, es ist schlechthin nicht klar, wie es der Situation helfen sollte. Der Zweck der Strategie würde nur später erscheinen. Wenn man aber nah am Feuer anfängt, kann man sofort sehen, das die Pest eins weinger umgegebenen Knoten befallen hat.
+	  
+	  \section{Die Greedy-Strategie}
+	  
+	  \paragraph{}
+
+	  Mit der Greedy-Strategie ist das Hauptziel die Bedrohung wie viel wie im aktuellen Zug möglich ist zu senken. Es gibt überhaupt keine Hoffnung, dass es sich lohnt im Moment die scheinbar schlechtere Möglichkeit zu wählen, um später eine noch bessere Möglichkeit zu ergreifen. Es geht nur um jetzt, den aktuellen Zeitpunkt. 
+	  
+	  \paragraph{}
+	  
+	  Es ergibt also Sinn wie nah wie möglich am Feuer die Knoten zu beschützen, weil dann ist die Bedrohung sofort niedriger, wenn die Knoten nicht beschützt wären.
+	
+
+
+\end{document}
