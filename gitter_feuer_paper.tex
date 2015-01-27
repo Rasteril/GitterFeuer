@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+
+\title{Ausbreitung eines Feuers auf einem Gitter}
+\author{Daniel Podstavek}
+\date {Den 25-sten Januar, 2015}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Einleitung}
+Die Idee, dass etwas die Umgebung ansteckt und damit sich ständig verbreitet und vervielfacht ist in unseren Welt häufig. Ob in der Form von einer Epidemie zwischen Leuten in belebten Straßen, einer Pest im Garten, unheilvollen Viren im Internet oder sogar eines Feuers im Wald, bestimmte Eigenschaften sind übertragbar und damit auch gemeinsam. Das ursprüngliche Problem des Feuerwehrmannes war erst im 1995 vom Bert Hartnell eingeführt und ab dem Zeitpunkt erschienen viele Publikationen, die sich damit bis zur Tiefe auseinandergesetzt haben. Das Problem lässt ich mithilfe der Kenntnissen aus der Graphen Theorie mathematisch beschreiben. Die Darstellung, die entstanden ist ein Graph, der aus einer menge von Knoten besteht, die miteinander durch Kanten verbunden sind.
+
+\subsection{Die Regeln des Spiels}
+Ohne das wir überhaupt einen Einfluß darauf haben wo, das Feuer bricht an irgendeinem Knoten aus. In jedem Zeitschritt $z$ steckt der brennende Knoten alle unbesetzte Nachbarknoten an. In dem Zeitschritt $z + 1$ brennt nun nicht nur der einer Knoten, sondern auch alle, die direkt mit ihm verbunden sind. Jeder neuangesteckte Knoten verbreitet sich in derselben Art und Weise, immer die freie Nachbarknoten ansteckend. Jeder Knoten, der einmal brennt, tut das auch immer weiter, bis zum Spielende. Die Welt ist aber gar nicht so wehrlos, und zwar kommt schnell eine Einsatzeinheit zum Retten der noch nicht brennenden Knoten. Diese Einsatzeinheit vermag in jedem Zeitschritt $z$ genau $e$ Einsatzkräfte zur Verfügung stellen, und zwar immer folgender Weise: beliebige, nicht brennende Punkte dürfen von einer Einsatzkraft besetzt werden und damit beschützt. Die beschützte Knoten können nicht mehr angezündet werden. Wenn ein brennender Knoten $n$ Nachbarn hat und einer von denen von einer Einsatzkraft beschützt ist, nur $n - 1$ verbleibende Knoten würden in dem nächsten Zeitschritt angesteckt. Der einmal beschützte Knoten bleibt auch bis zum Ende beschützt. Ein brennender Knoten darf nicht beschützt werden. Wann endet nun das Spiel? Wenn das Feuer keine Nachbarknoten anstecken vermag, weil sie alle beschützt sind, dann ist das Spiel zum Ende. Wenn die Epidemie keine Fähigkeit mehr sich zu vebreiten hat, sprechen wir von einer Einschließung. Die Aufgabe für uns, als Umweltschützer ist also die Pest unter Kontrolle zu bringen.
+
+\subsection{Die Ziele}
+Mit diesem Problem kann man verschiedene Ziele verfolgen. Einige der vielen Möglichkeiten sind:
+\begin{enumerate}
+\item Das Feuer in der geringsten Zeit einzuschließen, das heißt, mit der kleinsten Anzahl von der Einsatzkräften $e$
+\item Möglichst wenige Knoten verbrennen lassen: die Fläche, wo die Epidemie sich verbreitet hat minimalisieren.
+\end{enumerate}
+Wie es scheint, die geringste Fläche muss nicht immer die kleinste Anzahl von verbrauchten Einsatzkräften bedeuten. Wir werden uns hauptsächlich mit der ersten Möglichkeit auseinandersetzen, aber die andere bleibt nicht ausgeschloßen. Die kleinste Anzahl von verbrauchten Einsatzkräften bedeutet den geringsten Bedarf an irgendwelchen Ressourcen, also verfügbare Hilfkräfte.
+
+\subsection{Unsere Darstellung}
+Es gibt viele mögliche Darstellungen und Variationen dieser Idee. Unsere Darstellung ist ein Graph, wo jeder Knoten mit 4 anderen durch Kanten verbunden ist. Einen solchen Graphen kann man auch als Gitter erkennen. Der Graph ist unendlich, also gibt es keine Grenze, die die Verbreitung des Feuers einschränkt. Wenn es niemand schafft einzuschließen, die Ansteckung neuer Knoten geht ins Unendliche.
+
+\subsection{Definitionen}
+Um uns darauf zu einigen, was ein bestimmter Ausdruck bedeutet, führe ich ein paar unsere Situation beschreibende Begriffe ein.
+\begin{description}
+\item[Nachbarn] Zwei Knoten, die mit einer Kante verbunden sind nennen wir Nachbarn
+\item[Vollständigkeit] Wenn einige Knoten vollständig sind, sollte man sie alle besuchen können, ohne das andere Knoten, als die Nachbarn besucht wären.
+\item[Vollständige Kette] Wenn bestimmte Knoten vollständig sind und nicht mehr als 2 Nachbarn haben, die nennen wir eine vollständige Kette
+\item[Haupt und Fuß] Bei einer vollständigen Kette, diejenige Knoten, die nur einen Nachbarn haben, nennen wir Haupt und Fuß. In der Regel macht es keinen Unterschied, ob einer Knoten das Haupt und anderer der Fuß ist, sie können also willkürlich gewählt sein.
+\item[Grad der Bedrohung] In wie vielen Zeitchritten wird ein Knoten erreicht
+\end{description}
+
+\section{Die Lösung für $e=2; f=1; z=1$}
+Als der erster Schritt kam die bestimmung einer Knotenkonstellation, die eigentlich auch gültig als eine Lösung ist.
+
+\paragraph{Behauptung} Mit $e=1$ kann das Feuer nie eingeschloßen sein, dies war versuchsweise bestätigt.
+
+\paragraph{}
+
+(Die finale Gestalt)
+
+(Schrittweise Tabelle)
+
+\paragraph{}
+
+Unserer Lösung gelingt es in 8 Schritten 18 brennende Knoten einzuschließen. 
+
+\paragraph{Vermutung} Mit $e=2; f=1; z=1$ ist es nicht möglich mit wenigeren brennenden Knoten, oder mit wenigeren Schritten das Spiel beenden.
+
+\subsection{Die Strategie} Alle vorhandenen Knoten formen eine vollständige Kette, bei der jeder beschützter Knoten ein Nachbar vom Feuer ist. Knoten werden in Knotenpaaren geschützt, immer 2 vollständige Knoten. Dieses Vorgehen verursachtdie Entstehung von genau zwei Möglichkeiten das nächste Knotenpaar zu beschützen, nämlich nei dem Haupt und bei dem Fuß. Jetzt ist es wichtig das Paar so zu platzieren, damit es nach der Bewertung eine bessere Möglichkeit ist. 
+
+\paragraph{} Zur gefundenen Lösung gehören entsprechende Beobachtungen und Bemerkungen. Als Erstes merken wir die vollständige Kette, die das Feuer einschließt. Jede $e$ ist ein Nachbar des Feuers, die Bestrebung der Einsatzeinheit ist wie nah am Feuer zu bleiben, wie möglich. Die Idee dem Feuer einfach wenig Luft übrig zu lassen und die Richtung der Verbreitung zu verringern ist selbstverständlich und aufrichtig. Man könnte auch weg vom Feuer Knoten beschützen, aber irgendwie durch intuitive Überlegungen ergibt es Sinn sofort am Rand des Feuers mit der Abwehr anzufangen. 
+
+\paragraph{} (Bild mit der Strahlen und Schatten)
+
+\paragraph{} Wenn man nah am Feuer Knoten beschützt, erhebt es sofort einen Mauer gegen die Verbreitung und damit zwingt es das Feuer einen anderen Weg zu finden. Diese Gedanke, dem Feuer die Reise durch den verwundbaren Graphen am meisten zu behindern führt man mit kurzfristigen Planen. Die Hauptaufgabe würde die schwerste Hindernisse einrichten, die man in diesem Moment einrichten kann. Das klingt sehr geizig, oder? Es ist mir egal was man vor mir oder nach mir macht, ich kümmere mich nur um was ich mache und ich mache es so gut ich kann. Diese Vorgehensweise nennt man tatsächlich ein Greedy-Ansatz.
+
+\section{Der Greedy-Ansatz}
+Die Überlegung vom Greedy-Ansatz ist die Einsatzkräfte so zu stellen, damit nachdem ich sie gestellt habe, das das Beste was ich machen konnte war. D.h, Ich denke nur auf den momentanen Erfolg von diesem aktuellen Zug. 
+\paragraph{Warum ist es sinnvoll den zu benutzen?} Unseres Ziel ist doch die nicht brennende Knoten zu beschützen und das durch das Einschließen der Bedrohung. Mit einer Greedy-Vorgehensweise strebt man genau danach, die Knoten am besten zu schützen, wie es im Moment geht. Also von der Idee her kann nicht viel Übel an der Sache liegen. Am Anfang hat man eine Eingabe, oder eine Reihe von Möglichkeiten. Die Aufgabe ist nun, die beste Möglichkeit zu wählen, eine Möglichkeit, die die Beste in diesem Zeitpunkt wäre. Dafür braucht man eine Art der Berechnung von wie gut eine gegebene Möglichkeit eigentlich ist. Das wichtigste Teil des Greedy-Ansatzes ist die Bewertung. 
+
+\subsection{Die Bewertung}  Bei unseren Definition ist die bessere Möglichkeit genau die, die den kleinsten Bedrohungsvektor $v$ ergibt. Den ersten Element bildet die Anzahl der Knoten mit dem Bedrohungsgrad von 1, den zweiten der Bedrohungsgrad bildet die Anzahl der Knoten mit dem bedrohungsgrad von 2, usw. Der Vektor ist im Prinzip unendlich lang. Der wichtigste Element ist der erste. Der Vektor stellt die zukunftige Zustände des Feuers dar, nur ohne das die Einsatzkräfte überhaupt unterbrechen. 
+
+
+
+\end{document}
